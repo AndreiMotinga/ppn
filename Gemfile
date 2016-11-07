@@ -4,6 +4,7 @@ ruby "2.3.1"
 
 gem "autoprefixer-rails"
 gem "delayed_job_active_record"
+gem "devise"
 gem "flutie"
 gem "jquery-rails"
 gem "normalize-rails", "~> 3.0.0"

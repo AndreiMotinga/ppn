@@ -1,4 +1,7 @@
 FactoryGirl.define do
+  factory :user do
+    
+  end
   factory :post do
     title { FFaker::Lorem.sentence }
     slug nil
