@@ -1,0 +1,7 @@
+tr
+  td = link_to post.title.truncate(100), post
+  td = post.private
+  td
+    = link_to 'Edit', edit_dashboard_post_path(post)
+    = " "
+    = link_to 'Destroy', dashboard_post_path(post), data: { confirm: 'Are you sure?' }, method: :delete

@@ -1,0 +1,15 @@
+= simple_form_for([:dashboard, post]) do |f|
+  - if post.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(post.errors.count, "error")} prohibited this company from being saved:"
+      ul
+        - post.errors.full_messages.each do |message|
+          li = message
+
+  .form-inputs
+    = f.input :title
+    = f.input :summary
+    = f.input :text
+    = f.input :attachment
+    = f.input :private
+    = f.button :submit

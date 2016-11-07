@@ -1,0 +1,10 @@
+header.company-header
+  .company-header__logo
+    - if current_user.try(:admin_of?, company)
+      = link_to edit_dashboard_company_path(company) do
+        = image_tag company.logo.url(:medium)
+    - else
+      = image_tag company.logo.url(:medium)
+  .company-header__description
+    h1= company.name
+    p= company.description

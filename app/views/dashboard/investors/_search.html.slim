@@ -1,0 +1,5 @@
+= form_tag dashboard_company_investors_path,  method: :post, class: "new-investor-form"
+  = email_field_tag :email,
+                    params[:email],
+                    placeholder: "email", required: true
+  = submit_tag "Add Investor", name: nil

@@ -1,0 +1,13 @@
+- content_for :nav, render("dashboard/nav")
+= link_to "New Post", new_dashboard_post_path, type: "button"
+
+table.table-minimal
+  thead
+      tr
+        th Title
+        th Private
+        th
+  - @posts.each do |post|
+    = render "dashboard/posts/post", post: post
+
+= paginate @posts

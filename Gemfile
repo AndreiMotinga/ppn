@@ -3,21 +3,29 @@ source "https://rubygems.org"
 ruby "2.3.1"
 
 gem "autoprefixer-rails"
+gem "aws-sdk", "~> 2.3"
+gem "country_select"
 gem "delayed_job_active_record"
+gem "devise"
 gem "flutie"
 gem "jquery-rails"
+gem "kaminari"
 gem "normalize-rails", "~> 3.0.0"
+gem "paperclip", "~> 5.0.0"
 gem "pg"
 gem "puma"
 gem "rack-canonical-host"
 gem "rails", "~> 5.0.0"
+gem "rails-timeago", "~> 2.0"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 5.0"
 gem "simple_form"
+gem "slim-rails"
 gem "sprockets", ">= 3.0.0"
 gem "sprockets-es6"
 gem "suspenders"
 gem "title"
+gem "turbolinks", "~> 5.0.0"
 gem "uglifier"
 
 group :development do
@@ -33,9 +41,11 @@ group :development, :test do
   gem "bundler-audit", ">= 0.5.0", require: false
   gem "dotenv-rails"
   gem "factory_girl_rails"
+  gem "ffaker"
   gem "pry-byebug"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.5.0.beta4"
+  gem "rails-controller-testing"
 end
 
 group :development, :staging do

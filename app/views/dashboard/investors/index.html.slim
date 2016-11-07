@@ -1,0 +1,8 @@
+- content_for :nav, render("dashboard/nav")
+= render "dashboard/investors/search"
+
+table.table-minimal
+  - @investors.each do |investor|
+    = render "dashboard/investors/investor", investor: investor
+
+= paginate @investors

@@ -1,0 +1,5 @@
+- content_for :nav, render("dashboard/nav")
+
+section.main
+  h1 Editing company
+  == render 'form', company: @company

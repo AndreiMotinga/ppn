@@ -1,0 +1,25 @@
+// _post
+.post {
+  @include outer-container;
+  max-width: $content-width;
+}
+
+.post--title {
+  a {
+    text-decoration: none;
+  }
+}
+
+// posts-show
+
+.posts-show {
+  .post {
+    h1 {
+      font-size: modular-scale(2);
+    }
+
+    header * {
+      text-align: center;
+    }
+  }
+}

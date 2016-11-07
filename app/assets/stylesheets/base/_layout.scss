@@ -12,3 +12,13 @@ html,
 body {
   height: 100%;
 }
+
+.container {
+  @include outer-container;
+  margin-bottom: $base-spacing;
+  padding: $small-spacing;
+}
+
+.devise {
+  @include outer-container($screen-md);
+}

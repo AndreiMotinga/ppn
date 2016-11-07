@@ -1,0 +1,9 @@
+article.post
+  h2.post--title = link_to post.title, post
+
+  p = post.summary
+
+  footer
+    |  Posted by #{link_to post.company_name, public_company_path(post.company)}
+    |  #{timeago_tag post.created_at}
+  hr

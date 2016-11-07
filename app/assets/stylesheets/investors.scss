@@ -1,0 +1,9 @@
+.new-investor-form {
+  input[type="email"] {
+    @include span-columns(3);
+  }
+
+  input[type="submit"] {
+    padding: 10px;
+  }
+}

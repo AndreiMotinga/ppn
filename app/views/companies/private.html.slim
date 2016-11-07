@@ -1,0 +1,5 @@
+- content_for :header, render("companies/header", company: @company)
+- content_for :nav, render("companies/nav", company: @company)
+
+= render @company.private_posts(params[:page])
+= paginate @company.private_posts(params[:page])

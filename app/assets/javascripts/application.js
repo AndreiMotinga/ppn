@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
+
+//= require rails-timeago
+
+//= require components/navigation
 
 //= require_tree .
