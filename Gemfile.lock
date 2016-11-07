@@ -103,6 +103,7 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    ffaker (2.2.0)
     ffi (1.9.14)
     flutie (2.0.0)
     formulaic (0.3.0)
@@ -291,6 +292,7 @@ DEPENDENCIES
   delayed_job_active_record
   dotenv-rails
   factory_girl_rails
+  ffaker
   flutie
   formulaic
   high_voltage

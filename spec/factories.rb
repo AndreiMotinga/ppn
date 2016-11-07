@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    slug "MyString"
-    text "MyText"
+    title { FFaker::Lorem.sentence }
+    slug nil
+    text { FFaker::Lorem.paragraph(5) }
     private false
   end
 end
