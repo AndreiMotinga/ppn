@@ -3,26 +3,31 @@ FactoryGirl.define do
     company
     user
   end
+
   factory :company_investor do
     company
     user
   end
 
   factory :company do
-    name "MyString"
-    description "MyText"
-    address "MyString"
-    phone "MyString"
-    email "MyString"
+    name { FFaker::Company.name }
+    description { FFaker::Lorem.paragraph(5) }
+    address do
+      [FFaker::Address.street_address,
+       FFaker::Address.city,
+       "New York"].join(" ")
+    end
+    phone { FFaker::PhoneNumber.phone_number }
+    email { FFaker::Internet.email }
   end
 
   factory :user do
+    email { FFaker::Internet.email }
     password "password"
     password_confirmation "password"
-    email { FFaker::Internet.email }
-    name { FFaker::Name.name  }
+    name { FFaker::Name.name }
     phone { FFaker::PhoneNumber.phone_number }
-    country "US"
+    country { FFaker::Address.country_code }
     trait :with_company do
       company
     end
@@ -30,7 +35,6 @@ FactoryGirl.define do
 
   factory :post do
     title { FFaker::Lorem.sentence }
-    slug nil
     text { FFaker::Lorem.paragraph(5) }
     private false
   end
