@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :company_investor do
+    company
+    user
+  end
+
   factory :company do
     name "MyString"
     description "MyText"

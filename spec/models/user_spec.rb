@@ -4,8 +4,8 @@ RSpec.describe User, type: :model do
   it { should belong_to(:company) }
   it { should have_many(:company_investors) }
   it { should have_many(:investing_companies)
-               .through(:company_investors)
-               .source("company") }
+    .through(:company_investors)
+    .source("company") }
 
   describe "#can_write?" do
     it "is true if user has company" do
