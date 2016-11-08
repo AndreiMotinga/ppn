@@ -1,4 +1,11 @@
 FactoryGirl.define do
+  factory :company do
+    name "MyString"
+    description "MyText"
+    address "MyString"
+    phone "MyString"
+    email "MyString"
+  end
   factory :user do
     
   end
