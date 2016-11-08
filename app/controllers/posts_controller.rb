@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :validate_user, only: [:new, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -54,5 +55,9 @@ class PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:title, :slug, :text, :private)
+    end
+
+    def validate_user
+      redirect_to root_path unless current_user.try(:can_write?)
     end
 end
