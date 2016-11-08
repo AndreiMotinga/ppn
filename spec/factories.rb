@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :company_follower do
+    company nil
+    user nil
+  end
   factory :company_investor do
     company
     user

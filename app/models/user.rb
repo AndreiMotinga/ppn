@@ -5,9 +5,11 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :company, optional: true
+  has_many :posts
   has_many :company_investors
   has_many :investing_companies, through: :company_investors, source: "company"
-  has_many :posts
+  has_many :company_followers
+  has_many :following_companies, through: :company_followers, source: "company"
 
   def country_name
     country = self.country

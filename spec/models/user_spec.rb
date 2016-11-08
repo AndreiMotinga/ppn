@@ -8,6 +8,11 @@ RSpec.describe User, type: :model do
     .through(:company_investors)
     .source("company") }
 
+  it { should have_many(:company_followers) }
+  it { should have_many(:following_companies)
+    .through(:company_followers)
+    .source("company") }
+
   describe "#can_write?" do
     it "is true if user has company" do
       can = create :user, :with_company

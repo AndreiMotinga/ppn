@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161108195312) do
+ActiveRecord::Schema.define(version: 20161108195639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,15 @@ ActiveRecord::Schema.define(version: 20161108195312) do
     t.string   "email"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "company_followers", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_followers_on_company_id", using: :btree
+    t.index ["user_id"], name: "index_company_followers_on_user_id", using: :btree
   end
 
   create_table "company_investors", force: :cascade do |t|
@@ -85,6 +94,8 @@ ActiveRecord::Schema.define(version: 20161108195312) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "company_followers", "companies"
+  add_foreign_key "company_followers", "users"
   add_foreign_key "company_investors", "companies"
   add_foreign_key "company_investors", "users"
   add_foreign_key "posts", "users"
