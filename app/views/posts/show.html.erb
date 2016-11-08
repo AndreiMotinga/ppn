@@ -20,5 +20,10 @@
   <%= @post.private %>
 </p>
 
+<p>
+  <%= link_to 'Download Attachment', @post.attachment.url %>
+</p>
+
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
