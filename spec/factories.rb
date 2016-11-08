@@ -6,9 +6,19 @@ FactoryGirl.define do
     phone "MyString"
     email "MyString"
   end
+
   factory :user do
-    
+    password "password"
+    password_confirmation "password"
+    email { FFaker::Internet.email }
+    name { FFaker::Name.name  }
+    phone { FFaker::PhoneNumber.phone_number }
+    country "US"
+    trait :with_company do
+      company
+    end
   end
+
   factory :post do
     title { FFaker::Lorem.sentence }
     slug nil
