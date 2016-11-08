@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :company, optional: true
   has_many :company_investors
   has_many :investing_companies, through: :company_investors, source: "company"
+  has_many :posts
 
   def country_name
     country = self.country
