@@ -1,7 +1,9 @@
 section.content
-  = render "dashboard/nav", company: @company
+  = render "dashboard/nav"
 
   section.main
     table
       - @posts.each do |post|
         = render "dashboard/posts/post", post: post
+
+    = paginate @posts

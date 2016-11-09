@@ -16,6 +16,7 @@ class User < ApplicationRecord
     ISO3166::Country[country]
   end
 
+  # todo rename to has_company?
   def can_write?
     company.present?
   end

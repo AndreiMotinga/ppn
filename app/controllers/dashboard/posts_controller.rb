@@ -1,14 +1,9 @@
 class Dashboard::PostsController < ApplicationController
   before_action :validate_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_post, only: [:edit, :update, :destroy]
-  before_action :set_company
 
   def index
-    @posts = Post.public_posts.desc.page(params[:page])
-  end
-
-  def show
-    @post = Post.find(params[:id])
+    @posts = current_user.company.posts.page(params[:page])
   end
 
   def new
@@ -38,13 +33,13 @@ class Dashboard::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: "Post was successfully destroyed."
+    redirect_to dashboard_posts_path, notice: "Post was successfully destroyed."
   end
 
   private
 
   def set_post
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.company.posts.find(params[:id])
   end
 
   def post_params
@@ -53,9 +48,5 @@ class Dashboard::PostsController < ApplicationController
 
   def validate_user
     redirect_to root_path unless current_user.try(:can_write?)
-  end
-
-  def set_company
-    @company = Company.find(params[:id])
   end
 end

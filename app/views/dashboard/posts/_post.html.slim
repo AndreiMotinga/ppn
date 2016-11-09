@@ -1,2 +1,4 @@
 tr
-  td post.title.truncate(100)
+  td = link_to post.title.truncate(100), post
+  td = link_to 'Edit', edit_dashboard_post_path(post)
+  td = link_to 'Destroy', dashboard_post_path(post), data: { confirm: 'Are you sure?' }, method: :delete
