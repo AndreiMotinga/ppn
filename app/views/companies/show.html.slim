@@ -1,6 +1,14 @@
 section.company
-  h1= @company.name
-  p= @company.description
+  header
+    h1= @company.name
+    p= @company.description
+    nav.company-nav
+      ul
+        li= link_to "public", @company
+        li contacts
+        li private
+        li admin
+
   section.contacts
     div email: #{@company.address}
     div phone: #{@company.phone}

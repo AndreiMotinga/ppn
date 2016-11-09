@@ -4,4 +4,12 @@
     margin: 20px;
     border: thin solid green;
   }
+
+  .company-nav ul {
+    border: thin solid red;
+    display: flex;
+  }
+  .company-nav li {
+    padding: 10px;
+  }
 }
