@@ -1,21 +1,11 @@
-p#notice = notice
+section.company
+  h1= @company.name
+  p= @company.description
+  section.contacts
+    div email: #{@company.address}
+    div phone: #{@company.phone}
+    div email: #{@company.email}
 
-p
-  strong Name:
-  = @company.name
-p
-  strong Description:
-  = @company.description
-p
-  strong Address:
-  = @company.address
-p
-  strong Phone:
-  = @company.phone
-p
-  strong Email:
-  = @company.email
-
-= link_to 'Edit', edit_company_path(@company)
-'|
-= link_to 'Back', companies_path
+section.posts
+  ul
+    = render @company.posts

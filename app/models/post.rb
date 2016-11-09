@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   validates_presence_of :title, :text
+  delegate :company, to: :user
 
   ATTACHMENTS = %w(
     image/jpeg image/jpg image/png application/pdf application/msword
