@@ -27,4 +27,12 @@ class User < ApplicationRecord
   def public_posts
     posts.public_posts
   end
+
+  def admin_of?(company)
+    company_id == company.id
+  end
+
+  def company_name
+    company.name
+  end
 end

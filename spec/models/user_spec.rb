@@ -22,4 +22,15 @@ RSpec.describe User, type: :model do
       expect(can_not.can_write?).to be_falsy
     end
   end
+
+  describe "#admin_of?" do
+    it "is true if user can administrate company" do
+      company = create :company
+      admin = create :user, company: company
+      user = create :user
+
+      expect(admin.admin_of?(company)).to eq true
+      expect(user.admin_of?(company)).to eq false
+    end
+  end
 end

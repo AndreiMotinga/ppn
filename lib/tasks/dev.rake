@@ -6,18 +6,32 @@ if Rails.env.development? || Rails.env.test?
     task prime: "db:setup" do
       include FactoryGirl::Syntax::Methods
 
-      create(:user, name: "Igor", admin: true)
-      create(:user, name: "Mike", admin: true)
-      create(:user, name: "Andrei", admin: true)
-      create_list(:user, 20, :with_company)
-      User.find_each { |u| create_list(:post, 10, user: u) }
-
       company = create :company, name: "EFC"
-      katie = create :user, name: "Katie", company_id: company.id
-      create_list(:post, 30, user: katie, title: "Private Post title", private: true)
-      create_list(:post, 40, user: katie, title: "Public Post title", private: false)
+      andrei = create(:user,
+                      company_id: company.id,
+                      name: "Andrei",
+                      admin: true,
+                      email: "andrei@foo.com")
+
+      create(:user,
+             company_id: company.id,
+             name: "Igor",
+             admin: true,
+             email: "igor@foo.com")
+
+      create(:user,
+             company_id: company.id,
+             name: "Mike",
+             admin: true,
+             email: "mike@foo.com")
+
+      User.find_each { |u| create_list(:post, 15, user: u) }
+      User.find_each { |u| create_list(:post, 15, user: u, private: true) }
+
       create_list(:company_investor, 5, company: company)
-      create_list(:company_follower, 40, company: company)
+      # create_list(:company_follower, 40, company: company)
+
+      create_list(:user, 10, :with_company)
     end
   end
 end

@@ -14,4 +14,6 @@ class Post < ApplicationRecord
   scope :private_posts, -> { where(private: true) }
   scope :desc, -> { order("created_at desc") }
   scope :by_admins, ->(ids) { where(user_id: ids) }
+
+  delegate :company_name, to: :user
 end

@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :set_company,
-                only: [:show, :edit, :update, :destroy, :contacts, :private]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :contacts,
+                                     :private, :dashboard]
 
   # GET /companies
   def index
@@ -50,6 +50,9 @@ class CompaniesController < ApplicationController
   end
 
   def private
+  end
+
+  def dashboard
   end
 
   private
