@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.public_posts.desc
+    @posts = Post.public_posts.desc.page(params[:page])
   end
 
   # GET /posts/1
