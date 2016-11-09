@@ -7,11 +7,11 @@ if Rails.env.development? || Rails.env.test?
       include FactoryGirl::Syntax::Methods
 
       company = create :company, name: "EFC"
-      andrei = create(:user,
-                      company_id: company.id,
-                      name: "Andrei",
-                      admin: true,
-                      email: "andrei@foo.com")
+      create(:user,
+             company_id: company.id,
+             name: "Andrei",
+             admin: true,
+             email: "andrei@foo.com")
 
       create(:user,
              company_id: company.id,
@@ -25,13 +25,18 @@ if Rails.env.development? || Rails.env.test?
              admin: true,
              email: "mike@foo.com")
 
-      User.find_each { |u| create_list(:post, 15, user: u) }
-      User.find_each { |u| create_list(:post, 15, user: u, private: true) }
+      create_list(:user, 10, :with_company)
+      User.find_each { |u| create_list(:post, 20, user: u) }
+      User.find_each { |u| create_list(:post, 20, user: u, private: true) }
 
       create_list(:company_investor, 5, company: company)
-      # create_list(:company_follower, 40, company: company)
 
-      create_list(:user, 10, :with_company)
+      Post.find_each do |post|
+        word = post.private? ? "private" : "public"
+        post.title = "#{word} - #{post.title}"
+        post.created_at = (rand * 10).days.ago
+        post.save
+      end
     end
   end
 end

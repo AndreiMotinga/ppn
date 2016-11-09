@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :contacts,
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :public,
                                      :private, :dashboard]
 
   # GET /companies
@@ -46,10 +46,16 @@ class CompaniesController < ApplicationController
     redirect_to companies_url, notice: 'Company was successfully destroyed.'
   end
 
-  def contacts
+  def public
+    ids = @company.admins.pluck(:id)
+    @posts = Post.public_posts.desc.by_admins(ids).page(params[:page])
+    render :posts
   end
 
   def private
+    ids = @company.admins.pluck(:id)
+    @posts = Post.private_posts.desc.by_admins(ids).page(params[:page])
+    render :posts
   end
 
   def dashboard

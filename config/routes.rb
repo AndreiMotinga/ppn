@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources :companies, only: [:show] do
     member do
-      get :contacts
       get :private
+      get :public
       get :dashboard
       namespace :dashboard do
         resources :users, only: [:index]

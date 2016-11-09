@@ -52,7 +52,7 @@ RSpec.describe CompaniesController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  xdescribe "GET #new" do
     it "assigns a new company as @company" do
       get :new, params: {}, session: valid_session
       expect(assigns(:company)).to be_a_new(Company)

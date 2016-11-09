@@ -1,4 +1,6 @@
 li
   h1 = link_to post.title, post
   span = link_to post.company_name, post.company
+  = " "
+  span= time_ago_in_words post.created_at
   p = post.text.truncate(200)
