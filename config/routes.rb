@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :companies do
     member do
       get :contacts
+      get :private
     end
   end
   resources :posts

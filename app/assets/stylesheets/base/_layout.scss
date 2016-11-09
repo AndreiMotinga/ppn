@@ -15,4 +15,5 @@ body {
 
 .content {
   @include outer-container();
+  margin: 15px;
 }

@@ -12,10 +12,12 @@ if Rails.env.development? || Rails.env.test?
       create_list(:user, 20, :with_company)
       User.find_each { |u| create_list(:post, 10, user: u) }
 
-      katie = create :user, :with_company, name: "Katie"
-      create_list(:post, 40, user: katie)
-      create_list(:company_investor, 5, company: katie.company)
-      create_list(:company_follower, 40, company: katie.company)
+      company = create :company, name: "EFC"
+      katie = create :user, name: "Katie", company_id: company.id
+      create_list(:post, 30, user: katie, title: "Private Post title", private: true)
+      create_list(:post, 40, user: katie, title: "Public Post title", private: false)
+      create_list(:company_investor, 5, company: company)
+      create_list(:company_follower, 40, company: company)
     end
   end
 end

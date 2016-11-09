@@ -1,10 +1,10 @@
 section.company
-  header
+  header.company-header
     h1= company.name
     p= company.description
     nav.company-nav
       ul
         li= link_to "public", company
         li= link_to :contacts, contacts_company_path(company)
-        /li= link_to :private, company_private_path(company)
+        li= link_to :private, private_company_path(company)
         li admin

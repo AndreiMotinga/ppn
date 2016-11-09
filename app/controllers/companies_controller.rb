@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy, :contacts]
+  before_action :set_company,
+                only: [:show, :edit, :update, :destroy, :contacts, :private]
 
   # GET /companies
   def index
@@ -8,9 +9,6 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   def show
-  end
-
-  def contacts
   end
 
   # GET /companies/new
@@ -46,6 +44,12 @@ class CompaniesController < ApplicationController
   def destroy
     @company.destroy
     redirect_to companies_url, notice: 'Company was successfully destroyed.'
+  end
+
+  def contacts
+  end
+
+  def private
   end
 
   private

@@ -1,15 +1,17 @@
 .companies {
-  .company {
-    padding: 20px;
-    margin: 20px;
-    border: thin solid green;
-  }
-
   .company-nav ul {
     border: thin solid red;
     display: flex;
   }
+
   .company-nav li {
     padding: 10px;
+  }
+
+  .company-header {
+    @include outer-container();
+    margin: 15px;
+    padding: 20px;
+    border: thin solid green;
   }
 }

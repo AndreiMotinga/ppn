@@ -11,5 +11,7 @@ class Post < ApplicationRecord
   validates_attachment :attachment, content_type: { content_type: ATTACHMENTS }
 
   scope :public_posts, -> { where(private: false) }
+  scope :private_posts, -> { where(private: true) }
   scope :desc, -> { order("created_at desc") }
+  scope :by_admins, ->(ids) { where(user_id: ids) }
 end

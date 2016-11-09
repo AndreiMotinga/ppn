@@ -19,4 +19,12 @@ class User < ApplicationRecord
   def can_write?
     company.present?
   end
+
+  def private_posts
+    posts.private_posts
+  end
+
+  def public_posts
+    posts.public_posts
+  end
 end
