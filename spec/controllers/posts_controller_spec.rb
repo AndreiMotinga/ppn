@@ -6,7 +6,8 @@ RSpec.describe PostsController, type: :controller do
   let(:invalid_attributes) { {title: ""} }
 
   describe "GET #index" do
-    it "assigns all posts as @posts" do
+    it "assigns only public posts as @posts" do
+      create :post, private: true
       post = create :post
       get :index, params: {}, session: valid_session
       expect(assigns(:posts)).to eq([post])

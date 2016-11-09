@@ -9,4 +9,7 @@ class Post < ApplicationRecord
   ).map(&:freeze).freeze
   has_attached_file :attachment
   validates_attachment :attachment, content_type: { content_type: ATTACHMENTS }
+
+  scope :public_posts, -> { where(private: false) }
+  scope :desc, -> { order("created_at desc") }
 end
