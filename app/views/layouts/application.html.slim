@@ -9,7 +9,7 @@ html[lang="en"]
     = stylesheet_link_tag :application, media: "all"
     = csrf_meta_tags
   body class= body_class
-    #header
+    #main-header
       nav.nav-main
         span.brand= link_to "PPN", root_path
         ul.right
@@ -17,6 +17,8 @@ html[lang="en"]
             li= link_to('Logout', destroy_user_session_path, :method => :delete)
           - else
             li = link_to('Login', new_user_session_path)
+
+    = yield(:header)
 
     section.content
       = render "flashes"

@@ -1,0 +1,7 @@
+- content_for :header do
+  = render "companies/header", company: @company
+
+section.contacts
+  div email: #{@company.address}
+  div phone: #{@company.phone}
+  div email: #{@company.email}

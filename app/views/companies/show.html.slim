@@ -1,18 +1,5 @@
-section.company
-  header
-    h1= @company.name
-    p= @company.description
-    nav.company-nav
-      ul
-        li= link_to "public", @company
-        li contacts
-        li private
-        li admin
-
-  section.contacts
-    div email: #{@company.address}
-    div phone: #{@company.phone}
-    div email: #{@company.email}
+- content_for :header do
+  = render "companies/header", company: @company
 
 section.posts
   ul

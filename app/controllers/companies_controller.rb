@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:show, :edit, :update, :destroy, :contacts]
 
   # GET /companies
   def index
@@ -8,6 +8,9 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   def show
+  end
+
+  def contacts
   end
 
   # GET /companies/new
