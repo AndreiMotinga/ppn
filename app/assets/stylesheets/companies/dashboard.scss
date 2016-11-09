@@ -1,4 +1,5 @@
-.companies-dashboard {
+.dashboard-posts,
+.dashboard-investors {
   .content {
     // @include outer-container;
     display: flex;
@@ -14,7 +15,11 @@
     flex: 1;
   }
 
-  .right {
+  .dashboard-nav li {
+    padding: 10px;
+  }
+
+  .main {
     border: thin solid green;
     padding: 20px;
   }

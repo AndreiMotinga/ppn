@@ -4,8 +4,8 @@
 section.content
   nav.dashboard-nav
     ul
-      li Posts
-      li Users
+      li= link_to :Posts, dashboard_posts_path(@company)
+      li= link_to :Users, dashboard_users_path(@company)
 
   section.right
     p index here

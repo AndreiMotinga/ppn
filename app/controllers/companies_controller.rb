@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy, :public,
-                                     :private, :dashboard]
+                                     :private]
 
   # GET /companies
   def index
@@ -56,9 +56,6 @@ class CompaniesController < ApplicationController
     ids = @company.admins.pluck(:id)
     @posts = Post.private_posts.desc.by_admins(ids).page(params[:page])
     render :posts
-  end
-
-  def dashboard
   end
 
   private

@@ -8,4 +8,4 @@ section.company
         li= link_to :Public, public_company_path(company)
         li= link_to :Private, private_company_path(company)
         - if current_user && current_user.admin_of?(company)
-          li= link_to :Dashboard, dashboard_company_path(company)
+          li= link_to :Dashboard, dashboard_posts_path(company)

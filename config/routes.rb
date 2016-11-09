@@ -5,13 +5,13 @@ Rails.application.routes.draw do
     member do
       get :private
       get :public
-      get :dashboard
       namespace :dashboard do
-        resources :users, only: [:index]
+        resources :posts, only: [:index]
+        resources :investors, only: [:index]
       end
     end
   end
-  resources :posts
+  resources :posts, only: [:index, :show]
 
   root to: "posts#index"
 end
