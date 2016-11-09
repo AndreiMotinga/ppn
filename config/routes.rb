@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get :private
       get :public
       namespace :dashboard do
-        resources :posts, only: [:index]
+        resources :posts, only: [:index, :show]
         resources :investors, only: [:index]
       end
     end

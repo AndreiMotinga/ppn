@@ -2,4 +2,6 @@ section.content
   = render "dashboard/nav", company: @company
 
   section.main
-    p index here
+    table
+      - @posts.each do |post|
+        = render "dashboard/posts/post", post: post
