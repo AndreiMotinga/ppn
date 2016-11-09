@@ -1,5 +1,11 @@
 - content_for :header do
   = render "companies/header", company: @company
 
-section
-  p Some dashboard stuff here
+section.content
+  nav.dashboard-nav
+    ul
+      li Posts
+      li Users
+
+  section.right
+    p index here
