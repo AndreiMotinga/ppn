@@ -1,10 +1,18 @@
 class Dashboard::CompanyInvestorsController < Dashboard::BaseController
   def create
-    @investor = CompanyInvestor.new(company_investor_params)
-
-    if @investor.save
+    user = User.find_by_email(params[:email])
+    if user
+      @investor = CompanyInvestor.new(
+        company_id: current_user.company.id,
+        user_id: user.id
+      )
+      if @investor.save
+        redirect_to dashboard_investors_path,
+                    notice: "Investor was successfully added."
+      end
+    else
       redirect_to dashboard_investors_path,
-                  notice: "Investor was successfully added."
+                  notice: "Couldn't find user with email #{params[:email]}"
     end
   end
 

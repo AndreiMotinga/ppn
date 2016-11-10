@@ -11,9 +11,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :posts, except: :show
-    resources :investors, only: [:index] do
-      get :search, on: :collection
-    end
+    resources :investors, only: [:index]
     resources :company_investors, only: [:create, :destroy]
   end
 

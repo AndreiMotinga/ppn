@@ -1,4 +1,4 @@
 div
-  form action=search_dashboard_investors_path method="get"
+  = form_tag dashboard_company_investors_path,  method: :post
     = text_field_tag :email, params[:email], placeholder: "email"
     = submit_tag
