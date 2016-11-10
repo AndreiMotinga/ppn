@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :posts, except: :show
-    resources :investors, only: [:index]
+    resources :investors, only: [:index] do
+      get :search, on: :collection
+    end
   end
 
   root to: "posts#index"

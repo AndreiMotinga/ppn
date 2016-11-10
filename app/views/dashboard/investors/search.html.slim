@@ -1,0 +1,11 @@
+section.content
+  = render "dashboard/nav"
+
+  section.main
+    = render "dashboard/investors/search"
+
+    - if @user
+      = @user.email
+      /= link_to "add to investors",
+    - else
+      p Nobody found
