@@ -96,7 +96,7 @@ RSpec.describe Dashboard::PostsController, type: :controller do
 
       it "redirects to the created post" do
         post :create, params: {post: valid_attributes}
-        expect(response).to redirect_to(Post.last)
+        expect(response).to redirect_to(dashboard_posts_path)
       end
     end
 

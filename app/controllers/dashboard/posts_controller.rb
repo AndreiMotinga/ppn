@@ -2,7 +2,7 @@ class Dashboard::PostsController < Dashboard::BaseController
   before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
-    @posts = current_user.company.posts.page(params[:page])
+    @posts = current_user.company.posts.desc.page(params[:page])
   end
 
   def new
@@ -16,7 +16,8 @@ class Dashboard::PostsController < Dashboard::BaseController
     @post = current_user.posts.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: "Post was successfully created."
+      redirect_to dashboard_posts_path,
+                  notice: "Post was successfully created."
     else
       render :new
     end
