@@ -10,19 +10,19 @@ if Rails.env.development? || Rails.env.test?
       create(:user,
              company_id: company.id,
              name: "Andrei",
-             admin: true,
+             superadmin: true,
              email: "andrei@foo.com")
 
       create(:user,
              company_id: company.id,
              name: "Igor",
-             admin: true,
+             superadmin: true,
              email: "igor@foo.com")
 
       create(:user,
              company_id: company.id,
              name: "Mike",
-             admin: true,
+             superadmin: true,
              email: "mike@foo.com")
 
       create_list(:user, 10, :with_company)
