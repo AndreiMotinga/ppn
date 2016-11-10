@@ -1,12 +1,5 @@
-class Dashboard::InvestorsController < ApplicationController
-  before_action :set_company
-
+class Dashboard::InvestorsController < Dashboard::BaseController
   def index
-  end
-
-  private
-
-  def set_company
-    @company = Company.find(params[:id])
+    @investors = current_user.company.investors.page(params[:page])
   end
 end

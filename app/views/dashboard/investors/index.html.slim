@@ -1,5 +1,9 @@
 section.content
-  = render "dashboard/nav", company: @company
+  = render "dashboard/nav"
 
   section.main
-    p investors page
+    table
+      - @investors.each do |investor|
+        = render "dashboard/investors/investor", investor: investor
+
+    = paginate @investors

@@ -1,5 +1,4 @@
-class Dashboard::PostsController < ApplicationController
-  before_action :validate_user, only: [:new, :create, :edit, :update, :destroy]
+class Dashboard::PostsController < Dashboard::BaseController
   before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
@@ -44,9 +43,5 @@ class Dashboard::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :text, :private, :attachment)
-  end
-
-  def validate_user
-    redirect_to root_path unless current_user.try(:can_write?)
   end
 end
