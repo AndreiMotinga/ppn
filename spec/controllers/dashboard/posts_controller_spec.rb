@@ -7,18 +7,13 @@ RSpec.describe Dashboard::PostsController, type: :controller do
 
   describe "GET #index" do
     it "assigns only public posts as @posts" do
-      create :post, private: true
-      post = create :post
-      get :index, params: {}, session: valid_session
-      expect(assigns(:posts)).to eq([post])
-    end
-  end
+      user = create :user, :with_company
+      post = create :post, user: user
+      sign_in user
 
-  describe "GET #show" do
-    it "assigns the requested post as @post" do
-      post = create :post
-      get :show, params: {id: post.to_param}, session: valid_session
-      expect(assigns(:post)).to eq(post)
+      get :index
+
+      expect(assigns(:posts)).to eq([post])
     end
   end
 
@@ -171,15 +166,14 @@ RSpec.describe Dashboard::PostsController, type: :controller do
 
     it "destroys the requested post" do
       post = create :post, user: @user
-      expect {
-        delete :destroy, params: {id: post.to_param}
-      }.to change(Post, :count).by(-1)
+      expect { delete :destroy, params: { id: post.to_param } }
+        .to change(Post, :count).by(-1)
     end
 
     it "redirects to the posts list" do
       post = create :post, user: @user
-      delete :destroy, params: {id: post.to_param}
-      expect(response).to redirect_to(posts_url)
+      delete :destroy, params: { id: post.to_param }
+      expect(response).to redirect_to(dashboard_posts_path)
     end
   end
 end
