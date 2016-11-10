@@ -2,4 +2,4 @@ section.posts
   ul
     = render posts
 
-  = paginate posts
+  = paginate @company.public_posts(params[:page])

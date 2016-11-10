@@ -5,15 +5,9 @@ class CompaniesController < ApplicationController
   end
 
   def public
-    ids = @company.admins.pluck(:id)
-    @posts = Post.public_posts.desc.by_admins(ids).page(params[:page])
-    render :posts
   end
 
   def private
-    ids = @company.admins.pluck(:id)
-    @posts = Post.private_posts.desc.by_admins(ids).page(params[:page])
-    render :posts
   end
 
   private

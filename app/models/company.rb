@@ -17,4 +17,16 @@ class Company < ApplicationRecord
   def admin?(user)
     admins.include?(user)
   end
+
+  # todo test
+  def public_posts(page)
+    ids = admins.pluck(:id)
+    Post.public_posts.desc.by_admins(ids).page(page)
+  end
+
+  # todo test
+  def private_posts(page)
+    ids = admins.pluck(:id)
+    Post.private_posts.desc.by_admins(ids).page(page)
+  end
 end
