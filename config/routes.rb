@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :posts, except: :show
     resources :investors, only: [:index]
     resources :company_investors, only: [:create, :destroy]
+    resources :companies, only: [:edit, :update]
   end
 
   root to: "posts#index"

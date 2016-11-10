@@ -1,8 +1,8 @@
+# todo clean up
 class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy, :public,
                                      :private]
 
-  # GET /companies
   def index
     @companies = Company.all
   end
@@ -32,13 +32,6 @@ class CompaniesController < ApplicationController
   end
 
   # PATCH/PUT /companies/1
-  def update
-    if @company.update(company_params)
-      redirect_to @company, notice: 'Company was successfully updated.'
-    else
-      render :edit
-    end
-  end
 
   # DELETE /companies/1
   def destroy
@@ -65,7 +58,4 @@ class CompaniesController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def company_params
-      params.require(:company).permit(:name, :description, :address, :phone, :email)
-    end
 end
