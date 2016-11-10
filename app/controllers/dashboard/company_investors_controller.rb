@@ -8,6 +8,15 @@ class Dashboard::CompanyInvestorsController < Dashboard::BaseController
     end
   end
 
+  def destroy
+    CompanyInvestor.where(
+      company_id: current_user.company.id,
+      user_id: params[:id]
+    ).first.destroy
+    redirect_to dashboard_investors_path,
+                notice: "Investor was successfully removed."
+  end
+
   private
 
   def company_investor_params

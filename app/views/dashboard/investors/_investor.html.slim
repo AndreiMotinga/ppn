@@ -1,2 +1,4 @@
 tr
   td = investor.name
+  td = investor.email
+  td = link_to :remove, dashboard_company_investor_path(investor), data: { confirm: 'Are you sure?' }, method: :delete

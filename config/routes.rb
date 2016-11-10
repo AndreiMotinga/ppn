@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :investors, only: [:index] do
       get :search, on: :collection
     end
-    resources :company_investors, only: [:create]
+    resources :company_investors, only: [:create, :destroy]
   end
 
   root to: "posts#index"
