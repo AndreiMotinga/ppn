@@ -6,6 +6,8 @@ class Company < ApplicationRecord
   has_many :company_followers
   has_many :followers, through: :company_followers, source: "user"
 
+  validates_presence_of :name, :description, :address, :phone, :email
+
   # todo test
   def investor?(user)
     investors.include?(user)
