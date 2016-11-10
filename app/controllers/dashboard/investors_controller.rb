@@ -1,6 +1,8 @@
 class Dashboard::InvestorsController < Dashboard::BaseController
   def index
-    @investors = current_user.company.investors.page(params[:page])
+    @investors = current_user.company.investors
+      .order("company_investors.created_at desc")
+      .page(params[:page])
   end
 
   def search

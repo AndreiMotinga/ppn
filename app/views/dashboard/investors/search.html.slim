@@ -5,7 +5,7 @@ section.content
     = render "dashboard/investors/search"
 
     - if @user
-      = @user.email
-      /= link_to "add to investors",
+      div= @user.email
+      div= link_to("add to investors", dashboard_company_investors_path(company_investor: { company_id: current_user.company.id, user_id: @user.id }), method: :post)
     - else
       p Nobody found
