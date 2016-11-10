@@ -11,11 +11,6 @@ class User < ApplicationRecord
   has_many :company_followers
   has_many :following_companies, through: :company_followers, source: "company"
 
-  def country_name
-    country = self.country
-    ISO3166::Country[country]
-  end
-
   def has_company?
     company.present?
   end
@@ -26,10 +21,6 @@ class User < ApplicationRecord
 
   def public_posts
     posts.public_posts
-  end
-
-  def admin_of?(company)
-    company_id == company.id
   end
 
   def company_name
