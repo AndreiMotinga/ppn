@@ -4,6 +4,6 @@ class Dashboard::BaseController < ApplicationController
   private
 
   def validate_user
-    redirect_to root_path unless current_user.try(:can_write?)
+    redirect_to root_path unless current_user.try(:has_company?)
   end
 end
