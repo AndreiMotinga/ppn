@@ -1,0 +1,5 @@
+nav.dashboard-nav
+  ul
+    li= link_to :Posts, dashboard_posts_path
+    li= link_to :Investors, dashboard_investors_path
+    li= link_to :Company, edit_dashboard_company_path(current_user.company)

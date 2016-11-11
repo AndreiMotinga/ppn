@@ -1,0 +1,10 @@
+section.content
+  = render "dashboard/nav"
+
+  section.main
+    = render "dashboard/investors/search"
+    table
+      - @investors.each do |investor|
+        = render "dashboard/investors/investor", investor: investor
+
+    = paginate @investors

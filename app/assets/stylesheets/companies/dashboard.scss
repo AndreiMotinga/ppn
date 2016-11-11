@@ -1,0 +1,27 @@
+.dashboard-posts,
+.dashboard-companies,
+.dashboard-investors {
+  .content {
+    // @include outer-container;
+    display: flex;
+  }
+
+  .content > * {
+    flex: 4;
+  }
+
+  .dashboard-nav {
+    border: thin solid green;
+    padding: 20px;
+    flex: 1;
+  }
+
+  .dashboard-nav li {
+    padding: 10px;
+  }
+
+  .main {
+    border: thin solid green;
+    padding: 20px;
+  }
+}

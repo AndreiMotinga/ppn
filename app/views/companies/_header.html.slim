@@ -1,0 +1,12 @@
+section.company
+  header.company-header
+    h1= company.name
+    p= company.description
+    nav.company-nav
+      ul
+        li= link_to :Home, company
+        li= link_to :Public, public_company_path(company)
+        - if company.investor?(current_user) || company.admin?(current_user)
+          li= link_to :Private, private_company_path(company)
+        - if company.admin?(current_user)
+          li= link_to :Dashboard, dashboard_posts_path

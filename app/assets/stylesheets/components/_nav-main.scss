@@ -1,0 +1,10 @@
+.nav-main {
+  @include outer-container;
+  border: thin solid red;
+  margin-bottom: 20px;
+  padding: 20px;
+
+  ul {
+    float: right;
+  }
+}

@@ -1,0 +1,16 @@
+.companies {
+  .company-nav ul {
+    border: thin solid red;
+    display: flex;
+  }
+
+  .company-nav li {
+    padding: 10px;
+  }
+
+  .company-header {
+    padding: 20px;
+    margin: 20px;
+    border: thin solid green;
+  }
+}
