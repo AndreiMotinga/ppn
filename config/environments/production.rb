@@ -40,7 +40,7 @@ Rails.application.configure do
       secret_access_key: ENV.fetch("AWS_SECRET_ACCESS_KEY"),
       s3_region: ENV.fetch("AWS_REGION")
     },
-    default_url: "https://s3.amazonaws.com/elite-circle-prod/missing.png"
+    default_url: "https://s3.amazonaws.com/#{ENV.fetch("S3_BUCKET_NAME")}/missing.png"
   }
 end
 Rack::Timeout.timeout = (ENV["RACK_TIMEOUT"] || 10).to_i
