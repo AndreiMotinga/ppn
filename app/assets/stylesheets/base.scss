@@ -49,13 +49,5 @@ a.underline {
   text-decoration: underline;
 }
 
-hr {
-  border-bottom: $base-border-color;
-  border-left: 0;
-  border-right: 0;
-  border-top: 0;
-  margin: $base-spacing 0;
-}
-
 // helpers
 .border { border: thin solid green; }

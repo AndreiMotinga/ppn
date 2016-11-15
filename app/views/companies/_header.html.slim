@@ -1,5 +1,5 @@
 .container
-  header.row.company-header.border
+  header.row.company-header
     .hidden-xs.col-sm-3.company-header__logo
       - if current_user.try(:admin_of?, company)
         = link_to edit_dashboard_company_path(company) do

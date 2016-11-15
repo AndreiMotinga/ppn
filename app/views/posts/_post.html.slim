@@ -2,11 +2,10 @@ article.row.post
   .hidden-xs.col-sm-3
     = image_tag post.logo, class: "post__logo"
   .col-xs-12.col-sm-9
-    h2= link_to post.title, post, class: "post__title-a"
+    h2.post__title= link_to post.title, post, class: "post__title-a"
 
     p = post.summary
 
     footer
       |  Posted by #{link_to post.company_name, public_company_path(post.company), class: "underline" }
       |  #{timeago_tag post.created_at}
-    hr
