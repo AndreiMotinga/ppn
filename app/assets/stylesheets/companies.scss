@@ -1,25 +1,7 @@
-// header
 .company-header {
-  @include outer-container;
+
 }
 
-.company-header__logo {
-  display: none;
-  text-align: right;
-
-  @include media($screen-md) {
-    @include span-columns(4);
-    display: block;
-  }
-}
-
-.company-header__description {
-  @include media($screen-md) {
-    @include span-columns(8);
-  }
-}
-
-.company-desc {
-  @include outer-container;
-  max-width: $content-width;
+.company-header__logo img {
+  float: right;
 }

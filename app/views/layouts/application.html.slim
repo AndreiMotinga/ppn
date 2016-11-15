@@ -9,26 +9,7 @@ html[lang="en"]
     = csrf_meta_tags
 
   body class= body_class
-
-    header.navigation
-      .navigation-wrapper
-        a.logo[href=root_path] Elite Circle
-        a#js-mobile-menu.navigation-menu-button[href="javascript:void(0)"] MENU
-
-        nav
-          ul#js-navigation-menu.navigation-menu.show
-            li.nav-link
-            - if user_signed_in?
-              li.nav-link
-                - if current_user.has_company?
-                  = link_to(:Dashboard, dashboard_posts_path)
-              li.nav-link
-                = link_to :Settings, edit_user_registration_path
-              li.nav-link
-                = link_to :Logout, destroy_user_session_path, method: :delete
-            - else
-              li.nav-link = link_to('Login', new_user_session_path)
-    / header
+    = render "layouts/navigation"
 
     .container
       = yield :header

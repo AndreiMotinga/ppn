@@ -1,11 +1,19 @@
-// nav
+// main nav
+.main-nav {
+  background-color: transparent;
+}
+
+// secondary
 .secondary-nav {
-  @include margin($small-spacing null);
+  // @include margin($small-spacing null);
 
   border-bottom: 1px solid $light-gray;
+  margin-top: $small-spacing;
+  margin-bottom: $small-spacing;
 }
 
 .secondary-nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
 }

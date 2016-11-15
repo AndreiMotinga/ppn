@@ -1,7 +1,9 @@
 - content_for :nav, render("dashboard/nav")
-= link_to "New Post", new_dashboard_post_path, type: "button"
+= link_to "New Post", new_dashboard_post_path, class: "btn btn-default btn-small"
+br
+br
 
-table.table-minimal
+table.table
   thead
       tr
         th Title
@@ -10,4 +12,5 @@ table.table-minimal
   - @posts.each do |post|
     = render "dashboard/posts/post", post: post
 
-= paginate @posts
+.text-center
+  = paginate @posts, theme: "twitter-bootstrap-3"

@@ -2,4 +2,6 @@
 - content_for :nav, render("companies/nav", company: @company)
 
 = render @company.public_posts(params[:page])
-= paginate @company.public_posts(params[:page])
+
+.text-center
+  = paginate @company.public_posts(params[:page]), theme: "twitter-bootstrap-3"

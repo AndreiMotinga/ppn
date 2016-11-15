@@ -1,24 +1,8 @@
-// Breakpoints
-$screen-md: 600px;
-$screen-lg: 900px;
-$content-width: 700px;
-
-// Typography
-$base-font-family: $font-stack-system;
-$heading-font-family: $base-font-family;
-
-// Font Sizes
-$base-font-size: 1em;
-
-// Line height
+// Sizes
+$base-radius: 3px;
 $base-line-height: 1.5;
-$heading-line-height: 1.2;
-
-// Other Sizes
-$base-border-radius: 3px;
 $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
-$base-z-index: 0;
 
 // Colors
 $black: #000;
@@ -29,7 +13,7 @@ $light-gray: #ddd;
 $red: #ff0000;
 $green: #4caf50;
 
-// Font Colors
+// Fonts
 $base-font-color: $dark-gray;
 $action-color: $dark-gray;
 
@@ -48,3 +32,30 @@ $form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $l
 // Animations
 $base-duration: 150ms;
 $base-timing: ease;
+
+a {
+  color: $action-color;
+  // text-decoration: underline;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $red;
+  }
+}
+
+a.underline {
+  text-decoration: underline;
+}
+
+hr {
+  border-bottom: $base-border-color;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: $base-spacing 0;
+}
+
+// helpers
+.border { border: thin solid green; }

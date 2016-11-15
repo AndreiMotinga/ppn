@@ -1,0 +1,14 @@
+<div class="form-group">
+  <%= f.label :name %>
+  <%= f.text_field :name, autofocus: true, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :phone %>
+  <%= f.text_field :phone, autofocus: true, class: "form-control" %>
+</div>
+
+<div class="form-group">
+  <%= f.label :country %>
+  <%= country_select("user", "country", {include_blank: 'Select a country' }, { class: 'form-control' }) %>
+</div>

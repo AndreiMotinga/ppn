@@ -1,8 +1,9 @@
 - content_for :nav, render("dashboard/nav")
 = render "dashboard/investors/search"
 
-table.table-minimal
+table.table
   - @investors.each do |investor|
     = render "dashboard/investors/investor", investor: investor
 
-= paginate @investors
+.text-center
+  = paginate @investors, theme: "twitter-bootstrap-3"

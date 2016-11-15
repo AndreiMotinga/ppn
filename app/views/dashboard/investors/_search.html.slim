@@ -1,5 +1,12 @@
-= form_tag dashboard_company_investors_path,  method: :post, class: "new-investor-form"
-  = email_field_tag :email,
-                    params[:email],
-                    placeholder: "email", required: true
-  = submit_tag "Add Investor", name: nil
+.row
+  .col-lg-6
+    = form_tag dashboard_company_investors_path,  method: :post, class: "new-investor-form"
+      .input-group
+        = email_field_tag :email,
+                          params[:email],
+                          placeholder: "Search for...",
+                          required: true,
+                          class: "form-control"
+        span.input-group-btn
+          = submit_tag "Add Investor", name: nil, class: "btn btn-default"
+br

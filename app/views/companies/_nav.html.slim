@@ -1,6 +1,6 @@
 nav.secondary-nav
   ul
     li= link_to "Public Posts", public_company_path(company)
-    - if current_user.investor_of?(company) || company.admin?(current_user)
+    - if current_user.try(:investor_of?, company) || current_user.try(:admin_of?, company)
       li= link_to "Private Posts", private_company_path(company)
     li= link_to "Contacts", company

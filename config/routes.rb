@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  authenticate :user, ->(u) { u.superadmin? } do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
+
   devise_for :users
   resources :posts, only: [:index, :show]
 

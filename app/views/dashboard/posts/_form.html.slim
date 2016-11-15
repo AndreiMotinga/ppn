@@ -1,15 +1,13 @@
-= simple_form_for([:dashboard, post]) do |f|
-  - if post.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(post.errors.count, "error")} prohibited this company from being saved:"
-      ul
-        - post.errors.full_messages.each do |message|
-          li = message
+link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css"
+script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"
 
-  .form-inputs
-    = f.input :title
-    = f.input :summary
-    = f.input :text
-    = f.input :attachment
-    = f.input :private
-    = f.button :submit
+= bootstrap_form_for ([:dashboard, post]) do |f|
+  = f.text_field :title, required: true
+  = f.text_field :summary, required: true
+  = f.text_area :text
+  = f.file_field :attachment
+  = f.check_box :private
+  = f.submit "Submit"
+
+javascript:
+  var simplemde = new SimpleMDE();

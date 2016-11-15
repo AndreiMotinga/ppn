@@ -16,4 +16,8 @@ class Post < ApplicationRecord
   scope :by_admins, ->(ids) { where(user_id: ids) }
 
   delegate :company_name, to: :user
+
+  def logo
+    company.logo.url(:medium)
+  end
 end

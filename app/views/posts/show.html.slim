@@ -2,13 +2,13 @@ article.post
   header
     h1= @post.title
     div.post__company-date
-      = link_to @post.company_name, public_company_path(@post.company)
+      = link_to @post.company_name, public_company_path(@post.company), class: "underline"
       = " - "
       = timeago_tag @post.created_at
       hr
 
   p
-    = @post.text
+    = markdown @post.text
 
   - if @post.attachment?
     footer
